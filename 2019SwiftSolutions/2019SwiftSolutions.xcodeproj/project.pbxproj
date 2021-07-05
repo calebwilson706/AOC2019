@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AB059B3F269098110025D63F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB059B3E269098110025D63F /* main.swift */; };
+		AB9DAF812692F7F900ABF5EB /* PuzzleBox in Frameworks */ = {isa = PBXBuildFile; productRef = AB9DAF802692F7F900ABF5EB /* PuzzleBox */; };
+		AB9DAF832692F80500ABF5EB /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9DAF822692F80500ABF5EB /* Day2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,7 @@
 /* Begin PBXFileReference section */
 		AB059B3B269098110025D63F /* 2019SwiftSolutions */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 2019SwiftSolutions; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB059B3E269098110025D63F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AB9DAF822692F80500ABF5EB /* Day2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB9DAF812692F7F900ABF5EB /* PuzzleBox in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				AB059B3E269098110025D63F /* main.swift */,
+				AB9DAF822692F80500ABF5EB /* Day2.swift */,
 			);
 			path = 2019SwiftSolutions;
 			sourceTree = "<group>";
@@ -78,6 +83,9 @@
 			dependencies = (
 			);
 			name = 2019SwiftSolutions;
+			packageProductDependencies = (
+				AB9DAF802692F7F900ABF5EB /* PuzzleBox */,
+			);
 			productName = 2019SwiftSolutions;
 			productReference = AB059B3B269098110025D63F /* 2019SwiftSolutions */;
 			productType = "com.apple.product-type.tool";
@@ -105,6 +113,9 @@
 				Base,
 			);
 			mainGroup = AB059B32269098110025D63F;
+			packageReferences = (
+				AB9DAF7F2692F7F900ABF5EB /* XCRemoteSwiftPackageReference "puzzle-box-SP" */,
+			);
 			productRefGroup = AB059B3C269098110025D63F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB059B3F269098110025D63F /* main.swift in Sources */,
+				AB9DAF832692F80500ABF5EB /* Day2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +297,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AB9DAF7F2692F7F900ABF5EB /* XCRemoteSwiftPackageReference "puzzle-box-SP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/calebwilson706/puzzle-box-SP";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AB9DAF802692F7F900ABF5EB /* PuzzleBox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB9DAF7F2692F7F900ABF5EB /* XCRemoteSwiftPackageReference "puzzle-box-SP" */;
+			productName = PuzzleBox;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB059B33269098110025D63F /* Project object */;
 }
