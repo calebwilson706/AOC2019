@@ -1,49 +1,120 @@
 import java.io.File
 import java.util.*
 
-object Day5 {
 
-    private val input = File("/Users/calebjw/Documents/Developer/AdventOfCode/2019/Inputs/Day5Input.txt").readText()
 
-    fun part1() {
-        var currentIndex = 0
-        val map = parseInput().toMutableMap()
+class IntcodeComputer(private val inputText: String) {
+
+    fun feedbackLoopProgram(startIndex : Int,startValues : MutableMap<Int, Int>?, inputSequence: MutableList<Int>): Int? {
+        var currentIndex = startIndex
+        val map = startValues ?: parseInput().toMutableMap()
+        var inputIndex = 0
         val output = Stack<Int>()
 
         while (true) {
             val currentOpcode = map[currentIndex]!!
 
-            when (currentOpcode.toString().last().asInt()) {
-                1, 2 -> {
+
+            val opcodeFinalChar = currentOpcode.toString().last().asInt()
+
+            if (opcodeFinalChar == 9) {
+                break
+            }
+
+            val firstParameter = map[currentIndex + 1]!!
+            val secondParameter = map[currentIndex + 2]!!
+
+            when (opcodeFinalChar) {
+                1, 2, 7, 8 -> {
                     map.applyThreeParameterOpcode(
                         currentOpcode,
-                        map[currentIndex + 1]!!,
-                        map[currentIndex + 2]!!,
+                        firstParameter,
+                        secondParameter,
                         map[currentIndex + 3]!!
                     )
                     currentIndex += 4
                 }
                 3 -> {
-                    map.applyOpcode3(currentOpcode, map[currentIndex + 1]!!, 1)
+                    map.applyOpcode3(currentOpcode, firstParameter, inputSequence[inputIndex % inputSequence.size])
+                    inputIndex += 1
                     currentIndex += 2
                 }
                 4 -> {
-                    output.applyOpcode4(currentOpcode, map[currentIndex + 1]!!, map)
+                    output.applyOpcode4(currentOpcode, firstParameter, map)
                     currentIndex += 2
+
                 }
-                9 -> break
+
+                5,6 -> {
+                    if (map.shouldJump(currentOpcode, firstParameter)) {
+                        val (_, parameterMode) = getTwoParameterAccessModes(currentOpcode)
+                        currentIndex = map.getValue(parameterMode, secondParameter)
+                    } else {
+                        currentIndex += 3
+                    }
+                }
             }
 
 
         }
 
-        println(output)
+        return output.pop()
     }
 
-    fun part2() {
-        println(
-            IntcodeComputer(input).carryOutProgram(mutableListOf(5))
-        )
+    fun carryOutProgram(inputSequence: MutableList<Int>): Int? {
+        var currentIndex = 0
+        val map = parseInput().toMutableMap()
+        var inputIndex = 0
+        val output = Stack<Int>()
+
+        while (true) {
+            val currentOpcode = map[currentIndex]!!
+
+
+            val opcodeFinalChar = currentOpcode.toString().last().asInt()
+
+            if (opcodeFinalChar == 9) {
+                break
+            }
+
+            val firstParameter = map[currentIndex + 1]!!
+            val secondParameter = map[currentIndex + 2]!!
+
+            when (opcodeFinalChar) {
+                1, 2, 7, 8 -> {
+                    map.applyThreeParameterOpcode(
+                        currentOpcode,
+                        firstParameter,
+                        secondParameter,
+                        map[currentIndex + 3]!!
+                    )
+                    currentIndex += 4
+                }
+                3 -> {
+                    map.applyOpcode3(currentOpcode, firstParameter, inputSequence[inputIndex % inputSequence.size])
+                    inputIndex += 1
+                    currentIndex += 2
+                }
+                4 -> {
+                    output.applyOpcode4(currentOpcode, firstParameter, map)
+
+                    currentIndex += 2
+                }
+
+                5,6 -> {
+                    if (map.shouldJump(currentOpcode, firstParameter)) {
+                        val (_, parameterMode) = getTwoParameterAccessModes(currentOpcode)
+                        currentIndex = map.getValue(parameterMode, secondParameter)
+                    } else {
+                        currentIndex += 3
+                    }
+                }
+            }
+
+
+        }
+
+        return output.pop()
     }
 
     private fun MutableMap<Int, Int>.applyThreeParameterOpcode(intCode : Int, first : Int, second : Int, third : Int) {
@@ -75,7 +146,7 @@ object Day5 {
     private fun parseInput(): MutableMap<Int, Int> {
         val map = mutableMapOf<Int, Int>()
 
-        input.split(",").forEachIndexed { index, code ->
+        inputText.split(",").forEachIndexed { index, code ->
             map[index] = code.toInt()
         }
 
@@ -147,3 +218,9 @@ object Day5 {
     private fun getParameterMode(number : Int) = if (number == 0) ParameterMode.Position else ParameterMode.Value
 
 }
+
+enum class ParameterMode {
+    Position, Value
+}
+
+fun Char.asInt() = toString().toInt()
