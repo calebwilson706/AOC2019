@@ -21,7 +21,7 @@ fun <T> permute(input: List<T>): List<List<T>> {
 suspend fun compute(input: Channel<Int>?, output: Channel<Int>?, done: Channel<Int>?) {
     while(true) {
         val code = ArrayList<Int>()
-        File("/Users/calebjw/Documents/Developer/AdventOfCode/2019/Inputs/Day8Input.txt").readLines().joinToString().split(",").forEach { code.add(it.toInt()) }
+        File("/Users/calebjw/Documents/Developer/AdventOfCode/2019/Inputs/Day7Input.txt").readLines().joinToString().split(",").forEach { code.add(it.toInt()) }
         for (i in 0..4) code.add(0)
 
         fun get(mode: String,pos: Int) =

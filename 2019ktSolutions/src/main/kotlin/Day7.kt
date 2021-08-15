@@ -2,8 +2,8 @@ import java.io.File
 import java.util.Collections.swap
 import kotlin.math.max
 
-object Day8 {
-    val computer = IntcodeComputer(File("/Users/calebjw/Documents/Developer/AdventOfCode/2019/Inputs/Day8Input.txt").readText())
+object Day7 {
+    val computer = IntcodeComputer(File("/Users/calebjw/Documents/Developer/AdventOfCode/2019/Inputs/Day7Input.txt").readText())
 
     fun part1() {
         println(listOf(0,1,2,3,4).permutations().map { thrusterSequence ->

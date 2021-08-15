@@ -1,5 +1,5 @@
 
 
 fun main(args: Array<String>) {
-    Day8.part1()
+    Day7.part1()
 }
