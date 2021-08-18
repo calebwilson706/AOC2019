@@ -5,9 +5,18 @@
         "package": "PuzzleBox",
         "repositoryURL": "https://github.com/calebwilson706/puzzle-box-SP",
         "state": {
+          "branch": "main",
+          "revision": "5d603db4466dd70b795a6a281f7e69eeaacf9b30",
+          "version": null
+        }
+      },
+      {
+        "package": "swift-collections",
+        "repositoryURL": "https://github.com/apple/swift-collections",
+        "state": {
           "branch": null,
-          "revision": "04c6984eaa39fbd4f359afdfb1d4c5d0f2158447",
-          "version": "1.1.9"
+          "revision": "0959ba76a1d4a98fd11163aa83fd49c25b93bfae",
+          "version": "0.0.5"
         }
       }
     ]

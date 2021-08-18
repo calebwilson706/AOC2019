@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AB059B3F269098110025D63F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB059B3E269098110025D63F /* main.swift */; };
-		AB9DAF812692F7F900ABF5EB /* PuzzleBox in Frameworks */ = {isa = PBXBuildFile; productRef = AB9DAF802692F7F900ABF5EB /* PuzzleBox */; };
 		AB9DAF832692F80500ABF5EB /* Day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9DAF822692F80500ABF5EB /* Day2.swift */; };
 		ABD0528B26A4D20100843250 /* Day4.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD0528A26A4D20100843250 /* Day4.swift */; };
+		ABF7686626CC49D400D882F7 /* Day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF7686526CC49D400D882F7 /* Day10.swift */; };
+		ABF7686926CC4D0000D882F7 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = ABF7686826CC4D0000D882F7 /* OrderedCollections */; };
+		ABF7686B26CC4D0000D882F7 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = ABF7686A26CC4D0000D882F7 /* Collections */; };
+		ABF7686D26CC4D0000D882F7 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = ABF7686C26CC4D0000D882F7 /* DequeModule */; };
+		ABF7687026CC4F1700D882F7 /* PuzzleBox in Frameworks */ = {isa = PBXBuildFile; productRef = ABF7686F26CC4F1700D882F7 /* PuzzleBox */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +34,7 @@
 		AB059B3E269098110025D63F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		AB9DAF822692F80500ABF5EB /* Day2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day2.swift; sourceTree = "<group>"; };
 		ABD0528A26A4D20100843250 /* Day4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day4.swift; sourceTree = "<group>"; };
+		ABF7686526CC49D400D882F7 /* Day10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +42,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB9DAF812692F7F900ABF5EB /* PuzzleBox in Frameworks */,
+				ABF7687026CC4F1700D882F7 /* PuzzleBox in Frameworks */,
+				ABF7686B26CC4D0000D882F7 /* Collections in Frameworks */,
+				ABF7686D26CC4D0000D882F7 /* DequeModule in Frameworks */,
+				ABF7686926CC4D0000D882F7 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +74,7 @@
 				AB059B3E269098110025D63F /* main.swift */,
 				AB9DAF822692F80500ABF5EB /* Day2.swift */,
 				ABD0528A26A4D20100843250 /* Day4.swift */,
+				ABF7686526CC49D400D882F7 /* Day10.swift */,
 			);
 			path = 2019SwiftSolutions;
 			sourceTree = "<group>";
@@ -87,7 +96,10 @@
 			);
 			name = 2019SwiftSolutions;
 			packageProductDependencies = (
-				AB9DAF802692F7F900ABF5EB /* PuzzleBox */,
+				ABF7686826CC4D0000D882F7 /* OrderedCollections */,
+				ABF7686A26CC4D0000D882F7 /* Collections */,
+				ABF7686C26CC4D0000D882F7 /* DequeModule */,
+				ABF7686F26CC4F1700D882F7 /* PuzzleBox */,
 			);
 			productName = 2019SwiftSolutions;
 			productReference = AB059B3B269098110025D63F /* 2019SwiftSolutions */;
@@ -117,7 +129,8 @@
 			);
 			mainGroup = AB059B32269098110025D63F;
 			packageReferences = (
-				AB9DAF7F2692F7F900ABF5EB /* XCRemoteSwiftPackageReference "puzzle-box-SP" */,
+				ABF7686726CC4D0000D882F7 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				ABF7686E26CC4F1700D882F7 /* XCRemoteSwiftPackageReference "puzzle-box-SP" */,
 			);
 			productRefGroup = AB059B3C269098110025D63F /* Products */;
 			projectDirPath = "";
@@ -134,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB059B3F269098110025D63F /* main.swift in Sources */,
+				ABF7686626CC49D400D882F7 /* Day10.swift in Sources */,
 				ABD0528B26A4D20100843250 /* Day4.swift in Sources */,
 				AB9DAF832692F80500ABF5EB /* Day2.swift in Sources */,
 			);
@@ -303,20 +317,43 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AB9DAF7F2692F7F900ABF5EB /* XCRemoteSwiftPackageReference "puzzle-box-SP" */ = {
+		ABF7686726CC4D0000D882F7 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.5;
+			};
+		};
+		ABF7686E26CC4F1700D882F7 /* XCRemoteSwiftPackageReference "puzzle-box-SP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/calebwilson706/puzzle-box-SP";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.9;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AB9DAF802692F7F900ABF5EB /* PuzzleBox */ = {
+		ABF7686826CC4D0000D882F7 /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AB9DAF7F2692F7F900ABF5EB /* XCRemoteSwiftPackageReference "puzzle-box-SP" */;
+			package = ABF7686726CC4D0000D882F7 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+		ABF7686A26CC4D0000D882F7 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABF7686726CC4D0000D882F7 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		ABF7686C26CC4D0000D882F7 /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABF7686726CC4D0000D882F7 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		ABF7686F26CC4F1700D882F7 /* PuzzleBox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABF7686E26CC4F1700D882F7 /* XCRemoteSwiftPackageReference "puzzle-box-SP" */;
 			productName = PuzzleBox;
 		};
 /* End XCSwiftPackageProductDependency section */
